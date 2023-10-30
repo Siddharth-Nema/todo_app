@@ -10,7 +10,7 @@ import 'add_button.dart';
 
 class ProjectPageList extends StatefulWidget {
   final Project project;
-  ProjectPageList({this.project});
+  ProjectPageList({required this.project});
   @override
   _ProjectPageListState createState() => _ProjectPageListState();
 }
@@ -81,7 +81,7 @@ class _ProjectPageListState extends State<ProjectPageList> {
             );
             setState(() {});
             if (!wasSuccessful) {
-              Scaffold.of(context).showSnackBar(
+              ScaffoldMessenger.of(context).showSnackBar(
                 SnackBar(
                   content: Text('Title has to be unique and non-empty'),
                 ),

@@ -7,7 +7,7 @@ import 'package:todoapp/widgets/add_task.dart';
 
 class ProjectAddDialog extends StatelessWidget {
   final Project project;
-  ProjectAddDialog({this.project});
+  ProjectAddDialog({required this.project});
   @override
   Widget build(BuildContext context) {
     return Dialog(

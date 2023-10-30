@@ -12,7 +12,7 @@ import 'reusable_card.dart';
 class ProjectTile extends StatelessWidget {
   final Project project;
 
-  ProjectTile({this.project});
+  ProjectTile({required this.project});
 
   @override
   Widget build(BuildContext context) {
@@ -20,7 +20,7 @@ class ProjectTile extends StatelessWidget {
       int res = 0;
       try {
         res = ((project.completedTasks() * 100) / project.tasks.length).ceil();
-      } catch (Exception) {
+      } catch (e) {
         res = 0;
       }
 

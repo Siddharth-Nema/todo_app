@@ -7,7 +7,7 @@ import 'package:todoapp/models/todo_data.dart';
 class PopUpDialog extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    String taskTitle;
+    late String taskTitle;
     return SimpleDialog(
       children: <Widget>[
         Text(
@@ -37,15 +37,15 @@ class PopUpDialog extends StatelessWidget {
             fontWeight: FontWeight.w500,
           ),
         ),
-        RaisedButton(
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(16.0),
-          ),
+        ElevatedButton(
+          style: ButtonStyle(
+              backgroundColor: MaterialStatePropertyAll(kPrimaryAccentColor),
+              shape: MaterialStatePropertyAll(RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(16.0)))),
           child: Text(
             'Add',
             style: TextStyle(color: Colors.white),
           ),
-          color: kPrimaryAccentColor,
           onPressed: () {
             bool wasSuccessful =
                 context.read<ToDoData>().addTask(Task(title: taskTitle));

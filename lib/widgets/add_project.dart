@@ -8,7 +8,7 @@ import '../constants.dart';
 class AddProjectView extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    String _title;
+    late String _title;
     return Dialog(
       elevation: 0.0,
       shape: RoundedRectangleBorder(
@@ -65,9 +65,7 @@ class AddProjectView extends StatelessWidget {
                 fillColor: kPrimaryAccentColor,
                 onPressed: () {
                   bool wasSuccessful = context.read<ToDoData>().addProject(
-                        Project(
-                          title: _title,
-                        ),
+                        Project(title: _title, tasks: []),
                       );
                   Navigator.pop(context, wasSuccessful);
                 },

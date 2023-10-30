@@ -20,8 +20,9 @@ class NewDialog extends StatelessWidget {
       backgroundColor: Colors.white,
       child: AddTaskView(
         onAdd: (String taskTitle) {
-          bool wasSuccessful =
-              context.read<ToDoData>().addTask(Task(title: taskTitle));
+          bool wasSuccessful = context
+              .read<ToDoData>()
+              .addTask(Task(title: taskTitle, isDone: false));
           Navigator.pop(context, wasSuccessful);
         },
       ),

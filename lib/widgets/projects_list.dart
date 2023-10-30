@@ -5,7 +5,7 @@ import 'package:todoapp/widgets/project_tile.dart';
 class ProjectsList extends StatelessWidget {
   final List<Project> projects;
 
-  ProjectsList({this.projects});
+  ProjectsList({required this.projects});
   @override
   Widget build(BuildContext context) {
     return Expanded(

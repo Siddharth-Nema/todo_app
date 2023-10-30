@@ -80,7 +80,7 @@ class HomePageList extends StatelessWidget {
                     },
                   );
                   if (!wasSuccessful) {
-                    Scaffold.of(context).showSnackBar(
+                    ScaffoldMessenger.of(context).showSnackBar(
                       SnackBar(
                         content: Text('Title has to be unique and non-empty'),
                       ),

@@ -5,10 +5,10 @@ import 'package:todoapp/constants.dart';
 class AddTaskView extends StatelessWidget {
   final Function onAdd;
 
-  AddTaskView({this.onAdd});
+  AddTaskView({required this.onAdd});
   @override
   Widget build(BuildContext context) {
-    String taskTitle;
+    late String taskTitle;
     return Container(
       height: 64.0,
       child: Column(

@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:todoapp/models/database_helper.dart';
@@ -10,7 +12,7 @@ class ToDoData extends ChangeNotifier {
 
   bool addTask(Task task) {
     print('tasks updated');
-    if (task.title == null || task.title == '') {
+    if (task.title == '') {
       return false;
     }
     for (Task prevTask in tasks) {
@@ -41,37 +43,41 @@ class ToDoData extends ChangeNotifier {
   }
 
   void getData() async {
-    var data = await DatabaseHelper.dbHelper.getTasks();
+    var response = await DatabaseHelper.dbHelper.getTasks();
+    var data = json.decode(response.body);
+    print(data);
     for (var todo in data) {
       print(todo);
-      if (todo['parent'] == 'NONE') {
-        tasks.add(Task(
-            title: todo['title'], isDone: todo['isDone'] == 1, parent: 'NONE'));
-      } else {
-        int index = _getProjectWithTitle(todo['parent']);
-        if (index != -1) {
-          projects[index].addTask(Task(
-              title: todo['title'],
-              isDone: todo['isDone'] == 1,
-              parent: todo['parent']));
-        } else {
-          projects.add(
-            Project(title: todo['parent'], tasks: [
-              Task(
-                title: todo['title'],
-                isDone: todo['isDone'] == 1,
-                parent: todo['parent'],
-              ),
-            ]),
-          );
-        }
-      }
+      tasks.add(Task(
+          title: todo['title'],
+          isDone: todo['isCompleted'],
+          parent: 'NONE',
+          id: todo["_id"]));
+      // } else {
+      //   int index = _getProjectWithTitle(todo['parent']);
+      //   if (index != -1) {
+      //     projects[index].addTask(Task(
+      //         title: todo['title'],
+      //         isDone: todo['isDone'] == 1,
+      //         parent: todo['parent']));
+      //   } else {
+      //     projects.add(
+      //       Project(title: todo['parent'], tasks: [
+      //         Task(
+      //           title: todo['title'],
+      //           isDone: todo['isDone'] == 1,
+      //           parent: todo['parent'],
+      //         ),
+      //       ]),
+      //     );
+      //   }
+      // }
     }
     notifyListeners();
   }
 
   bool addProject(Project project) {
-    if (project.title == null || project.title == '') {
+    if (project.title == '') {
       return false;
     }
     for (Project prevProject in projects) {

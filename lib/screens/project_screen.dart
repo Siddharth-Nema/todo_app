@@ -4,7 +4,7 @@ import 'package:todoapp/widgets/project_page_list.dart';
 
 class ProjectScreen extends StatelessWidget {
   final Project project;
-  ProjectScreen({this.project});
+  ProjectScreen({required this.project});
 
   @override
   Widget build(BuildContext context) {

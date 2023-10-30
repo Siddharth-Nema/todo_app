@@ -8,7 +8,8 @@ class TaskTile extends StatelessWidget {
   final Function onChanged;
   final Function onLongTap;
 
-  TaskTile({this.task, this.onChanged, this.onLongTap});
+  TaskTile(
+      {required this.task, required this.onChanged, required this.onLongTap});
 
   @override
   Widget build(BuildContext context) {
@@ -26,8 +27,12 @@ class TaskTile extends StatelessWidget {
               fontWeight: FontWeight.w100,
             ),
           ),
-          onTap: onChanged,
-          onLongPress: onLongTap,
+          onTap: () {
+            onChanged();
+          },
+          onLongPress: () {
+            onLongTap();
+          },
           trailing: Checkbox(
             value: task.isDone,
             checkColor: Colors.white,

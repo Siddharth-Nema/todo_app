@@ -4,7 +4,7 @@ class Project {
   String title;
   List<Task> tasks;
 
-  Project({this.tasks, this.title = ''}) {
+  Project({required this.tasks, required this.title}) {
     tasks = [];
   }
 

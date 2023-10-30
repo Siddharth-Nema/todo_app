@@ -3,7 +3,7 @@ import 'package:todoapp/constants.dart';
 
 class AddButton extends StatelessWidget {
   final Function onTap;
-  AddButton({this.onTap});
+  AddButton({required this.onTap});
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -11,7 +11,9 @@ class AddButton extends StatelessWidget {
       child: RawMaterialButton(
         shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.all(Radius.circular(8.0))),
-        onPressed: onTap,
+        onPressed: () {
+          onTap();
+        },
         child: Padding(
           padding: const EdgeInsets.all(16.0),
           child: Row(
