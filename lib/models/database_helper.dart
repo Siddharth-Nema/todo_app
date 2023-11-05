@@ -35,9 +35,11 @@ class DatabaseHelper {
   // }
 
   dynamic addTask(Task task) async {
-    final response = await http.post(
-        Uri.parse('https://todo-api-wr5u.onrender.com/todo/add'),
-        body: {'title': task.title, 'isCompleted': task.isDone.toString()});
+    final response = await http
+        .post(Uri.parse('https://todo-api-wr5u.onrender.com/todo/add'), body: {
+      'title': task.title,
+      'isCompleted': task.isDone.toString(),
+    });
 
     print(response.body);
     var data = json.decode(response.body);
@@ -51,7 +53,7 @@ class DatabaseHelper {
 
   Future<http.Response> getTasks() async {
     print('Getting data');
-    return http.get(Uri.parse('https://todo-api-wr5u.onrender.com/todo'));
+    return http.get(Uri.parse('https://todo-api-wr5u.onrender.com/todo/'));
   }
 
   Future<void> updateTask(Task task) async {

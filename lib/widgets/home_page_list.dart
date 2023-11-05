@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -11,6 +12,11 @@ import 'package:todoapp/widgets/projects_list.dart';
 import 'task_list.dart';
 
 class HomePageList extends StatelessWidget {
+  Future<void> signOut() async {
+    print('Signing out');
+    await FirebaseAuth.instance.signOut();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -19,13 +25,19 @@ class HomePageList extends StatelessWidget {
         Container(
           padding: EdgeInsets.symmetric(horizontal: 8.0, vertical: 30.0),
           alignment: Alignment.centerLeft,
-          child: Text(
-            'Welcome Sid',
-            style: TextStyle(
-              color: kBlackColor,
-              fontSize: 27.0,
-              fontWeight: FontWeight.w800,
-            ),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Text(
+                'Welcome Sid',
+                style: TextStyle(
+                  color: kBlackColor,
+                  fontSize: 27.0,
+                  fontWeight: FontWeight.w800,
+                ),
+              ),
+              ElevatedButton(onPressed: signOut, child: Text("Sign Out"))
+            ],
           ),
         ),
         Padding(
