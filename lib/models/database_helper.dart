@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:path/path.dart';
 import 'package:sqflite/sqflite.dart';
 import 'package:todoapp/models/task.dart';
@@ -39,6 +40,7 @@ class DatabaseHelper {
         .post(Uri.parse('https://todo-api-wr5u.onrender.com/todo/add'), body: {
       'title': task.title,
       'isCompleted': task.isDone.toString(),
+      'userID': FirebaseAuth.instance.currentUser!.uid,
     });
 
     print(response.body);
@@ -53,7 +55,8 @@ class DatabaseHelper {
 
   Future<http.Response> getTasks() async {
     print('Getting data');
-    return http.get(Uri.parse('https://todo-api-wr5u.onrender.com/todo/'));
+    return http.get(Uri.parse(
+        'https://todo-api-wr5u.onrender.com/todo/${FirebaseAuth.instance.currentUser!.uid}'));
   }
 
   Future<void> updateTask(Task task) async {
@@ -68,6 +71,21 @@ class DatabaseHelper {
   Future<void> deleteTask(Task task) async {
     final response = await http.delete(
         Uri.parse('https://todo-api-wr5u.onrender.com/todo/${task.id}'));
+
+    print(response.body);
+  }
+
+  Future<void> configurUser() async {
+    FirebaseAuth _auth = FirebaseAuth.instance;
+
+    final response = await http.post(
+        Uri.parse('https://todo-api-wr5u.onrender.com/user/configureUser'),
+        body: {
+          "name": "Sidd",
+          "email": "somemail",
+          "phone": _auth.currentUser!.phoneNumber,
+          "fcmToken": _auth.currentUser!.uid
+        });
 
     print(response.body);
   }

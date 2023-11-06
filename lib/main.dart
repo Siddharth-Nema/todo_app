@@ -41,9 +41,11 @@ class MyApp extends StatelessWidget {
           if (snapshot.connectionState == ConnectionState.active) {
             User? user = snapshot.data;
             if (user != null) {
+              DatabaseHelper.dbHelper.configurUser();
               return HomePage();
             }
           }
+
           return LoginPage();
         },
       ),

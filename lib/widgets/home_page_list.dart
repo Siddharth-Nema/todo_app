@@ -12,11 +12,6 @@ import 'package:todoapp/widgets/projects_list.dart';
 import 'task_list.dart';
 
 class HomePageList extends StatelessWidget {
-  Future<void> signOut() async {
-    print('Signing out');
-    await FirebaseAuth.instance.signOut();
-  }
-
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -36,7 +31,13 @@ class HomePageList extends StatelessWidget {
                   fontWeight: FontWeight.w800,
                 ),
               ),
-              ElevatedButton(onPressed: signOut, child: Text("Sign Out"))
+              ElevatedButton(
+                  onPressed: () async {
+                    print('Signing out');
+                    context.read<ToDoData>().clearData();
+                    await FirebaseAuth.instance.signOut();
+                  },
+                  child: Text("Sign Out"))
             ],
           ),
         ),

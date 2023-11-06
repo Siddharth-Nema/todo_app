@@ -76,6 +76,11 @@ class ToDoData extends ChangeNotifier {
     notifyListeners();
   }
 
+  void clearData() {
+    tasks.clear();
+    notifyListeners();
+  }
+
   bool addProject(Project project) {
     if (project.title == '') {
       return false;
