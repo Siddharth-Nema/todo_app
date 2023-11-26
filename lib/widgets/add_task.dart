@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:todoapp/constants.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class AddTaskView extends StatelessWidget {
   final Function onAdd;
@@ -24,7 +25,7 @@ class AddTaskView extends StatelessWidget {
                   },
                   cursorColor: kBlackColor,
                   decoration: InputDecoration(
-                    hintText: 'Enter Task',
+                    hintText: AppLocalizations.of(context)!.enter_task,
                     hintStyle: TextStyle(
                       color: Color(0xFFD7D7D7),
                     ),

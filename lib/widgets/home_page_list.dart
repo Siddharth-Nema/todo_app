@@ -8,6 +8,7 @@ import 'package:todoapp/screens/pop_up_menu.dart';
 import 'package:todoapp/widgets/add_button.dart';
 import 'package:todoapp/widgets/add_project.dart';
 import 'package:todoapp/widgets/projects_list.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 import 'task_list.dart';
 
@@ -24,7 +25,7 @@ class HomePageList extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text(
-                'Welcome ${FirebaseAuth.instance.currentUser?.displayName}',
+                '${AppLocalizations.of(context)!.welcome} ${FirebaseAuth.instance.currentUser?.displayName}',
                 style: TextStyle(
                   color: kBlackColor,
                   fontSize: 27.0,
@@ -37,7 +38,7 @@ class HomePageList extends StatelessWidget {
                     context.read<ToDoData>().clearData();
                     await FirebaseAuth.instance.signOut();
                   },
-                  child: Text("Sign Out"))
+                  child: Text(AppLocalizations.of(context)!.sign_out))
             ],
           ),
         ),
@@ -47,7 +48,7 @@ class HomePageList extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: <Widget>[
               Text(
-                'Lists',
+                AppLocalizations.of(context)!.lists,
                 style: TextStyle(
                   fontWeight: FontWeight.w600,
                   fontSize: 24.0,
@@ -67,7 +68,7 @@ class HomePageList extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: <Widget>[
               Text(
-                'Quick Tasks',
+                AppLocalizations.of(context)!.quick_tasks,
                 style: TextStyle(
                   fontWeight: FontWeight.w600,
                   fontSize: 24.0,

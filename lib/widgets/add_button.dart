@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:todoapp/constants.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class AddButton extends StatelessWidget {
   final Function onTap;
@@ -35,7 +36,7 @@ class AddButton extends StatelessWidget {
                 width: 10.0,
               ),
               Text(
-                'Add new task...',
+                '${AppLocalizations.of(context)!.add_new_task}...',
                 style: TextStyle(
                   fontSize: 18.0,
                 ),

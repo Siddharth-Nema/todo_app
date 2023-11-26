@@ -1,0 +1,15 @@
+{
+  "helloWorld": "Hello World!",
+  "@helloWorld": {
+    "description": "The conventional newborn programmer greeting"
+  },
+  "welcome": "Welcome",
+  "@welcome": {
+    "description": "Greeting"
+  },
+  "sign_out": "Sign Out",
+  "add_new_task": "Add new task",
+  "lists": "List",
+  "quick_tasks": "Quick Tasks",
+  "enter_task": "Enter Task"
+}

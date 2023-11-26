@@ -10,6 +10,7 @@ import 'package:todoapp/models/todo_data.dart';
 import 'package:todoapp/screens/login_page.dart';
 import 'package:todoapp/screens/onboarding_page.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 import 'screens/home_page.dart';
 
@@ -38,6 +39,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       localizationsDelegates: [
+        AppLocalizations.delegate,
         GlobalMaterialLocalizations.delegate,
         GlobalWidgetsLocalizations.delegate,
         GlobalCupertinoLocalizations.delegate,

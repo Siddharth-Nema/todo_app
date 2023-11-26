@@ -1,0 +1,9 @@
+{
+    "helloWorld": "¡Hola Mundo!",
+    "welcome": "Bienvenido",    
+    "sign_out": "Desconectar",
+    "add_new_task": "Agregar nueva tarea",
+    "enter_task": "Ingresar Tarea",
+    "lists": "Liza",
+    "quick_tasks": "Tareas rápidas"
+}

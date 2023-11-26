@@ -21,7 +21,7 @@ class OnBoardingPage extends StatelessWidget {
       if (_nameController.text != "" && isValidEmail(_emailController.text)) {
         FirebaseAuth _auth = FirebaseAuth.instance;
         _auth.currentUser?.updateDisplayName(_nameController.text);
-        _auth.currentUser?.updateEmail(_emailController.text);
+        //_auth.currentUser?.updateEmail(_emailController.text);
       }
     }
 
