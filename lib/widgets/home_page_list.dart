@@ -24,7 +24,7 @@ class HomePageList extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text(
-                'Welcome Sid',
+                'Welcome ${FirebaseAuth.instance.currentUser?.displayName}',
                 style: TextStyle(
                   color: kBlackColor,
                   fontSize: 27.0,

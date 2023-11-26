@@ -77,16 +77,32 @@ class DatabaseHelper {
 
   Future<void> configurUser() async {
     FirebaseAuth _auth = FirebaseAuth.instance;
+    try {
+      final response = await http.post(
+          Uri.parse('https://todo-api-wr5u.onrender.com/user/configureUser'),
+          body: {
+            "name": _auth.currentUser?.displayName ?? "",
+            "email": _auth.currentUser?.email ?? "",
+            "phone": _auth.currentUser!.phoneNumber,
+            "fcmToken": _auth.currentUser!.uid
+          });
 
-    final response = await http.post(
-        Uri.parse('https://todo-api-wr5u.onrender.com/user/configureUser'),
-        body: {
-          "name": "Sidd",
-          "email": "somemail",
-          "phone": _auth.currentUser!.phoneNumber,
-          "fcmToken": _auth.currentUser!.uid
+      print(response.body);
+    } catch (e) {
+      print(e);
+    }
+  }
+
+  Future<void> updateUserDetails(String name, String email) async {
+    await http
+        .post(Uri.parse('https://todo-api-wr5u.onrender.com/user/updateUser'),
+            body: {
+              "name": name,
+              "email": email,
+            })
+        .then((value) => print(value))
+        .catchError((e) {
+          print(e);
         });
-
-    print(response.body);
   }
 }

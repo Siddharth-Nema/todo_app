@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:todoapp/models/todo_data.dart';
-import 'package:todoapp/screens/login_page.dart';
 import 'package:todoapp/widgets/home_page_list.dart';
 
 class HomePage extends StatefulWidget {

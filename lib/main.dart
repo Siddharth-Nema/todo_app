@@ -8,6 +8,8 @@ import 'package:todoapp/firebase_options.dart';
 import 'package:todoapp/models/database_helper.dart';
 import 'package:todoapp/models/todo_data.dart';
 import 'package:todoapp/screens/login_page.dart';
+import 'package:todoapp/screens/onboarding_page.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 
 import 'screens/home_page.dart';
 
@@ -35,18 +37,32 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Demo',
+      localizationsDelegates: [
+        GlobalMaterialLocalizations.delegate,
+        GlobalWidgetsLocalizations.delegate,
+        GlobalCupertinoLocalizations.delegate,
+      ],
+      supportedLocales: [
+        Locale('en'), // English
+        Locale('es'), // Spanish
+      ],
       home: StreamBuilder(
         stream: FirebaseAuth.instance.authStateChanges(),
         builder: (context, snapshot) {
           if (snapshot.connectionState == ConnectionState.active) {
             User? user = snapshot.data;
-            if (user != null) {
+            print(user);
+            if (user == null) {
+              return LoginPage();
+            } else if (user.displayName == null) {
+              return OnBoardingPage();
+            } else {
               DatabaseHelper.dbHelper.configurUser();
               return HomePage();
             }
+          } else {
+            return LoginPage();
           }
-
-          return LoginPage();
         },
       ),
       theme: ThemeData(

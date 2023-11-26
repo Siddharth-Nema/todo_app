@@ -60,14 +60,17 @@ class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
-        TextField(
-          controller: _controller,
-        ),
-        ElevatedButton(onPressed: login, child: Text("Send OTP")),
-        ElevatedButton(
-            onPressed: loginAnonymously, child: Text("Login Anonymously"))
-      ]),
+      body: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 24.0),
+        child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
+          TextField(
+            controller: _controller,
+          ),
+          ElevatedButton(onPressed: login, child: Text("Send OTP")),
+          ElevatedButton(
+              onPressed: loginAnonymously, child: Text("Login Anonymously"))
+        ]),
+      ),
     );
   }
 }
