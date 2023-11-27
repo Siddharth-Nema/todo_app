@@ -23,6 +23,8 @@ class OnBoardingPage extends StatelessWidget {
         FirebaseAuth _auth = FirebaseAuth.instance;
         _auth.currentUser?.updateDisplayName(_nameController.text);
         //_auth.currentUser?.updateEmail(_emailController.text);
+      } else {
+        print("Something wrong");
       }
     }
 
