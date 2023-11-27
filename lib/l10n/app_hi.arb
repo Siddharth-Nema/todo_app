@@ -1,0 +1,17 @@
+{
+    "helloWorld": "हैलो वर्ल्ड",
+    "welcome": "नमस्ते",    
+    "sign_out": "साइन आउट",
+    "add_new_task": "नया कार्य जोड़ें",
+    "enter_task": "कार्य टाइप करें",
+    "lists": "सूचियों",
+    "quick_tasks": "त्वरित कार्य",
+    "send_otp": "OTP भेजें",
+    "guest_login": "मेहमान लॉगइन करें",
+    "verify_otp": "ओटीपी जांचें",
+    "name": "नाम",
+    "email": "ईमेल",
+    "name_cannot_be_empty": "नाम खाली नहीं हो सकता",
+    "invalid_email": "अमान्य ईमेल",
+    "submit": "जमा करना"
+}

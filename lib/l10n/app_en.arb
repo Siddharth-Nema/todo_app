@@ -11,5 +11,13 @@
   "add_new_task": "Add new task",
   "lists": "List",
   "quick_tasks": "Quick Tasks",
-  "enter_task": "Enter Task"
+  "enter_task": "Enter Task",
+  "send_otp": "Send OTP",
+  "guest_login": "Guest Login",
+  "verify_otp": "Verify OTP",
+  "name": "Name",
+  "email": "Email",
+  "name_cannot_be_empty": "Name cannot be empty",
+  "invalid_email": "Invalid Email",
+  "submit": "Submit"
 }

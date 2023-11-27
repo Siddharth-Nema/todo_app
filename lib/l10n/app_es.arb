@@ -5,5 +5,13 @@
     "add_new_task": "Agregar nueva tarea",
     "enter_task": "Ingresar Tarea",
     "lists": "Liza",
-    "quick_tasks": "Tareas rápidas"
+    "quick_tasks": "Tareas rápidas",
+    "send_otp": "Enviar OTP",
+    "guest_login": "Acceso de usuario invitado",
+    "verify_otp": "Verificar OTP",
+    "name": "Nombre",
+    "email": "Correo Electrónico",
+    "name_cannot_be_empty": "El nombre no puede estar vacío",
+    "invalid_email": "Email inválido",
+    "submit": "Entregar"
 }

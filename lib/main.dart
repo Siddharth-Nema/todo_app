@@ -47,6 +47,7 @@ class MyApp extends StatelessWidget {
       supportedLocales: [
         Locale('en'), // English
         Locale('es'), // Spanish
+        Locale('hi'),
       ],
       home: StreamBuilder(
         stream: FirebaseAuth.instance.authStateChanges(),

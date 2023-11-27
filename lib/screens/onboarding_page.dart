@@ -1,5 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class OnBoardingPage extends StatelessWidget {
   const OnBoardingPage({super.key});
@@ -37,19 +38,26 @@ class OnBoardingPage extends StatelessWidget {
               style: TextStyle(fontSize: 32.0),
             ),
             TextFormField(
-              decoration: InputDecoration(labelText: "Name"),
+              decoration: InputDecoration(
+                  labelText: AppLocalizations.of(context)!.name),
               controller: _nameController,
               autovalidateMode: AutovalidateMode.onUserInteraction,
-              validator: (value) => value == "" ? "Name cannot be empty" : null,
+              validator: (value) => value == ""
+                  ? AppLocalizations.of(context)!.name_cannot_be_empty
+                  : null,
             ),
             TextFormField(
-              decoration: InputDecoration(labelText: "Email"),
+              decoration: InputDecoration(
+                  labelText: AppLocalizations.of(context)!.email),
               controller: _emailController,
               autovalidateMode: AutovalidateMode.onUserInteraction,
-              validator: (value) =>
-                  isValidEmail(value) ? null : "Invalid Email",
+              validator: (value) => isValidEmail(value)
+                  ? null
+                  : AppLocalizations.of(context)!.invalid_email,
             ),
-            ElevatedButton(onPressed: submit, child: Text("Submit"))
+            ElevatedButton(
+                onPressed: submit,
+                child: Text(AppLocalizations.of(context)!.submit))
           ],
         ),
       ),

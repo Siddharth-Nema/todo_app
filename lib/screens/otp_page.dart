@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class OtpPage extends StatelessWidget {
   final Function verifyOTP;
@@ -20,7 +21,7 @@ class OtpPage extends StatelessWidget {
                 await verifyOTP(_controller.text);
                 Navigator.pop(context);
               },
-              child: Text("Verify OTP"))
+              child: Text(AppLocalizations.of(context)!.verify_otp))
         ],
       ),
     );

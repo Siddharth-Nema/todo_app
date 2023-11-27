@@ -1,6 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:todoapp/screens/otp_page.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -66,9 +67,12 @@ class _LoginPageState extends State<LoginPage> {
           TextField(
             controller: _controller,
           ),
-          ElevatedButton(onPressed: login, child: Text("Send OTP")),
           ElevatedButton(
-              onPressed: loginAnonymously, child: Text("Login Anonymously"))
+              onPressed: login,
+              child: Text(AppLocalizations.of(context)!.send_otp)),
+          ElevatedButton(
+              onPressed: loginAnonymously,
+              child: Text(AppLocalizations.of(context)!.guest_login))
         ]),
       ),
     );
