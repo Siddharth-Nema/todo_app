@@ -1,5 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:todoapp/constants.dart';
 import 'package:todoapp/screens/otp_page.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
@@ -64,56 +65,71 @@ class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 24.0),
-        child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
-          Image.network(
-            'https://cdn-icons-png.flaticon.com/512/9741/9741158.png',
-            scale: 3,
-          ),
-          Padding(
-            padding:
-                const EdgeInsets.symmetric(vertical: 16.0, horizontal: 8.0),
-            child: Row(
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 24.0, vertical: 100),
+          child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
-                DropdownMenu(
-                  controller: _countryCodeController,
-                  dropdownMenuEntries: <DropdownMenuEntry>[
-                    DropdownMenuEntry(value: '+91', label: '+91')
-                  ],
-                  width: 100,
+                Image.network(
+                  'https://cdn-icons-png.flaticon.com/512/9741/9741158.png',
+                  scale: 2,
                 ),
-                Expanded(
-                  child: TextField(
-                    controller: _controller,
-                    decoration: InputDecoration(
-                      border: OutlineInputBorder(),
-                      hintText: 'Enter you phone number...',
+                Row(
+                  children: [
+                    DropdownMenu(
+                      textStyle: TextStyle(fontSize: 20, letterSpacing: 1.2),
+                      trailingIcon: Icon(Icons.arrow_drop_down_rounded),
+                      hintText: "00",
+                      controller: _countryCodeController,
+                      dropdownMenuEntries: <DropdownMenuEntry>[
+                        DropdownMenuEntry(value: '+91', label: '+91')
+                      ],
+                      width: 105,
                     ),
-                  ),
+                    Expanded(
+                      child: TextField(
+                        keyboardType: TextInputType.numberWithOptions(),
+                        style: TextStyle(fontSize: 20, letterSpacing: 1.2),
+                        controller: _controller,
+                        decoration: InputDecoration(
+                          border: OutlineInputBorder(),
+                          hintText: 'Enter phone number',
+                        ),
+                      ),
+                    ),
+                  ],
                 ),
-              ],
-            ),
-          ),
-          ElevatedButton(
-              style: ButtonStyle(
-                  padding: MaterialStatePropertyAll(
-                      EdgeInsets.symmetric(horizontal: 24.0)),
-                  textStyle: MaterialStatePropertyAll(
-                    TextStyle(fontSize: 16.0),
-                  )),
-              onPressed: login,
-              child: Text(AppLocalizations.of(context)!.send_otp)),
-          ElevatedButton(
-              style: ButtonStyle(
-                  padding: MaterialStatePropertyAll(
-                      EdgeInsets.symmetric(horizontal: 30.0)),
-                  textStyle: MaterialStatePropertyAll(
-                    TextStyle(fontSize: 16.0),
-                  )),
-              onPressed: loginAnonymously,
-              child: Text(AppLocalizations.of(context)!.guest_login))
-        ]),
+                Padding(
+                  padding: const EdgeInsets.symmetric(vertical: 10.0),
+                  child: ElevatedButton(
+                      style: ButtonStyle(
+                          padding: MaterialStatePropertyAll(
+                              EdgeInsets.symmetric(
+                                  horizontal: 24.0, vertical: 16)),
+                          textStyle: MaterialStatePropertyAll(
+                            TextStyle(
+                                fontSize: 18.0, fontWeight: FontWeight.w700),
+                          ),
+                          backgroundColor:
+                              MaterialStatePropertyAll(kPrimaryAccentColor)),
+                      onPressed: login,
+                      child: Text(AppLocalizations.of(context)!.send_otp)),
+                ),
+                ElevatedButton(
+                    style: ButtonStyle(
+                        padding: MaterialStatePropertyAll(
+                            EdgeInsets.symmetric(horizontal: 30.0)),
+                        textStyle: MaterialStatePropertyAll(
+                          TextStyle(fontSize: 16.0),
+                        ),
+                        backgroundColor:
+                            MaterialStatePropertyAll(kPrimaryAccentColor)),
+                    onPressed: loginAnonymously,
+                    child: Text(AppLocalizations.of(context)!.guest_login))
+              ]),
+        ),
       ),
     );
   }
