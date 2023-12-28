@@ -154,20 +154,15 @@ class DatabaseHelper {
   }
 
   Future<void> updateTaskInProject(Task task, String projectID) async {
-    // print(json.encode({
-    //   'taskID': task.id,
-    //   'taskStatus': task.isDone,
-    //   'projectID': projectID
-    // }));
-    // final response = await http.post(
-    //     Uri.parse('https://todo-api-wr5u.onrender.com/project/updateInProject'),
-    //     body: json.encode({
-    //       'taskID': task.id,
-    //       'taskStatus': task.isDone,
-    //       'projectID': projectID
-    //     }));
+    final response = await http.post(
+        Uri.parse('https://todo-api-wr5u.onrender.com/project/updateInProject'),
+        body: {
+          'taskID': task.id,
+          'taskStatus': task.isDone.toString(),
+          'projectID': projectID
+        });
 
-    //print(response.body);
+    print(response.body);
   }
 
   Future<void> deleteTaskFromProject(Task task, String projectID) async {
