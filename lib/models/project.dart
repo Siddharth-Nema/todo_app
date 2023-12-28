@@ -1,10 +1,11 @@
 import 'package:todoapp/models/task.dart';
 
 class Project {
+  late String? id;
   String title;
   List<Task> tasks;
 
-  Project({required this.tasks, required this.title}) {
+  Project({required this.tasks, required this.title, this.id}) {
     tasks = [];
   }
 
@@ -18,5 +19,9 @@ class Project {
       if (tasks[i].isDone == true) sum++;
     }
     return sum;
+  }
+
+  void addID(String id) {
+    this.id = id;
   }
 }

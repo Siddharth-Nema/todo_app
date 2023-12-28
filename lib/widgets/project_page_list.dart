@@ -53,9 +53,8 @@ class _ProjectPageListState extends State<ProjectPageList> {
                 task: widget.project.tasks[index],
                 onChanged: () {
                   setState(() {
-                    context
-                        .read<ToDoData>()
-                        .toggleCheck(widget.project.tasks[index]);
+                    context.read<ToDoData>().toggleTaskfromProject(
+                        widget.project.tasks[index], widget.project.id ?? '');
                   });
                 },
                 onLongTap: () {

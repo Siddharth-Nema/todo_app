@@ -1,6 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
+import 'package:todoapp/screens/home_page.dart';
 
 class OnBoardingPage extends StatelessWidget {
   const OnBoardingPage({super.key});
@@ -18,11 +19,16 @@ class OnBoardingPage extends StatelessWidget {
     TextEditingController _nameController = new TextEditingController();
     TextEditingController _emailController = new TextEditingController();
 
-    void submit() {
+    void submit() async {
       if (_nameController.text != "" && isValidEmail(_emailController.text)) {
         FirebaseAuth _auth = FirebaseAuth.instance;
-        _auth.currentUser?.updateDisplayName(_nameController.text);
+        await _auth.currentUser?.updateDisplayName(_nameController.text);
+        print(_auth.currentUser);
         //_auth.currentUser?.updateEmail(_emailController.text);
+        // Navigator.of(context)
+        //     .pushReplacement(MaterialPageRoute(builder: (context) {
+        //   return HomePage();
+        // }));
       } else {
         print("Something wrong");
       }
