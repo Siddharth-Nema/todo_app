@@ -68,9 +68,17 @@ class MyApp extends StatelessWidget {
           }
         },
       ),
-      theme: ThemeData(
-        fontFamily: 'SourceSansPro',
+      theme: ThemeData.dark().copyWith(
+        elevatedButtonTheme: ElevatedButtonThemeData(
+            style: ButtonStyle(
+                backgroundColor:
+                    MaterialStatePropertyAll(kPrimaryAccentColor))),
         splashColor: kPrimaryAccentColor,
+        textTheme: TextTheme(
+          bodyLarge: TextStyle(color: Colors.white),
+          bodyMedium: TextStyle(color: Colors.white),
+          bodySmall: TextStyle(color: Colors.white),
+        ),
       ),
     );
   }

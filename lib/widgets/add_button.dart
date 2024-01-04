@@ -29,7 +29,6 @@ class AddButton extends StatelessWidget {
                 child: Icon(
                   Icons.add,
                   size: 20.0,
-                  color: kBlackColor,
                 ),
               ),
               SizedBox(

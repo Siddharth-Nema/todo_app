@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:pinput/pinput.dart';
 
-const Color kPrimaryAccentColor = Color(0xFFE7B464);
+const Color kPrimaryAccentColor = Color(0xFFF9CC0B);
 const Color kBlackColor = Color(0xFF4D4D4D);
+
+const Color kPrimaryColor = Color(0xFF0C1D36);
+const Color kSecondaryBlueColor = Color(0xFF154360);
 
 final defaultPinTheme = PinTheme(
   width: 56,

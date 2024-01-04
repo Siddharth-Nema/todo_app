@@ -1,17 +1,12 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:todoapp/constants.dart';
 import 'package:todoapp/models/task.dart';
 import 'package:todoapp/models/todo_data.dart';
-import 'package:todoapp/widgets/add_project.dart';
 import 'package:todoapp/widgets/add_task.dart';
 
 class NewDialog extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    //String taskTitle;
-    TabController tabController;
     return Dialog(
       shape: RoundedRectangleBorder(
         borderRadius: BorderRadius.circular(8.0),

@@ -38,7 +38,6 @@ class _ProjectPageListState extends State<ProjectPageList> {
               Text(
                 widget.project.title,
                 style: TextStyle(
-                  color: kBlackColor,
                   fontSize: 24.0,
                 ),
               ),

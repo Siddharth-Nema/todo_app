@@ -1,7 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
-import 'package:todoapp/screens/home_page.dart';
+import 'package:todoapp/constants.dart';
 
 class OnBoardingPage extends StatelessWidget {
   const OnBoardingPage({super.key});
@@ -35,6 +35,7 @@ class OnBoardingPage extends StatelessWidget {
     }
 
     return Scaffold(
+      backgroundColor: kPrimaryColor,
       body: Padding(
         padding: const EdgeInsets.all(8.0),
         child: Column(

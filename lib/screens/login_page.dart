@@ -65,6 +65,7 @@ class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: kPrimaryColor,
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.symmetric(horizontal: 24.0, vertical: 100),
@@ -72,9 +73,13 @@ class _LoginPageState extends State<LoginPage> {
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
-                Image.network(
-                  'https://cdn-icons-png.flaticon.com/512/9741/9741158.png',
-                  scale: 2,
+                Padding(
+                  padding: EdgeInsets.fromLTRB(
+                      8, MediaQuery.of(context).size.height / 5, 8, 50),
+                  child: Image.asset(
+                    'assets/app_logo.png',
+                    scale: 1,
+                  ),
                 ),
                 Row(
                   children: [

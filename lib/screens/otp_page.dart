@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:pinput/pinput.dart';
 import '../constants.dart';
 
@@ -9,9 +8,8 @@ class OtpPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    TextEditingController _controller = new TextEditingController();
-
     return Scaffold(
+      backgroundColor: kPrimaryColor,
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [

@@ -14,7 +14,6 @@ class _TasksListState extends State<TasksList> {
   @override
   void initState() {
     super.initState();
-    //getData();
   }
 
   void getData() async {

@@ -10,6 +10,10 @@ class AddTaskView extends StatelessWidget {
   Widget build(BuildContext context) {
     late String taskTitle;
     return Container(
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(8.0),
+        color: kSecondaryBlueColor,
+      ),
       height: 64.0,
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,

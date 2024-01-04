@@ -1,13 +1,10 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/painting.dart';
 import 'package:provider/provider.dart';
 import 'package:todoapp/constants.dart';
 import 'package:todoapp/models/project.dart';
 import 'package:todoapp/models/todo_data.dart';
 import 'package:todoapp/screens/project_screen.dart';
-
-import 'reusable_card.dart';
+import 'package:todoapp/widgets/reusable_card.dart';
 
 class ProjectTile extends StatelessWidget {
   final Project project;
@@ -64,7 +61,7 @@ class ProjectTile extends StatelessWidget {
                 child: Padding(
                   padding: EdgeInsets.symmetric(horizontal: 10.0),
                   child: Text(
-                    project.title ?? '',
+                    project.title,
                     textAlign: TextAlign.left,
                     style:
                         TextStyle(fontSize: 20.0, fontWeight: FontWeight.w500),
@@ -94,30 +91,3 @@ class ProjectTile extends StatelessWidget {
     );
   }
 }
-
-//Padding(
-//padding: EdgeInsets.symmetric(horizontal: 10.0),
-//child: Row(
-//children: <Widget>[
-//Container(
-//decoration: BoxDecoration(
-//border: Border.all(width: 2.0, color: kBlackColor),
-//borderRadius: BorderRadius.all(
-//Radius.circular(5.0),
-//),
-//),
-//child: SizedBox(
-//height: 10.0,
-//width: 10.0,
-//),
-//),
-//SizedBox(
-//width: 5.0,
-//),
-//Text(
-//project.tasks[0].title,
-//textAlign: TextAlign.left,
-//),
-//],
-//),
-//),

@@ -23,9 +23,10 @@ class TaskTile extends StatelessWidget {
           title: Text(
             task.title,
             style: TextStyle(
-              color: task.isDone ? Color(0xFFD7D7D7) : kBlackColor,
-              fontWeight: FontWeight.w100,
-            ),
+                color: task.isDone
+                    ? Color.fromARGB(93, 215, 215, 215)
+                    : Colors.white,
+                decoration: task.isDone ? TextDecoration.lineThrough : null),
           ),
           onTap: () {
             onChanged();

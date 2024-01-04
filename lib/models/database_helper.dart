@@ -1,40 +1,12 @@
 import 'dart:convert';
 
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:path/path.dart';
-import 'package:sqflite/sqflite.dart';
 import 'package:todoapp/models/project.dart';
 import 'package:todoapp/models/task.dart';
 import 'package:http/http.dart' as http;
 
 class DatabaseHelper {
-  late Database db;
-  static const String _todoTable = 'ToDoTable';
-  static const String _title = 'title';
-  static const String _isDone = 'isDone';
-  static const String _parent = 'parent';
   static final DatabaseHelper dbHelper = DatabaseHelper();
-
-  // Future<Database> get database async {
-  //   if (db != null) {
-  //     return db;
-  //   } else {
-  //     return await initDatabase();
-  //   }
-  // }
-
-  // Future<Database> initDatabase() async {
-  //   return await openDatabase(join(await getDatabasesPath(), 'to_do_data.db'),
-  //       onCreate: (db, version) async {
-  //     await db.execute('''
-  //       CREATE TABLE $_todoTable(
-  //         $_title TEXT,
-  //         $_isDone BOOLEAN,
-  //         $_parent TEXT
-  //       )
-  //     ''');
-  //   }, version: 1);
-  // }
 
   dynamic addTask(Task task) async {
     final response = await http
@@ -63,12 +35,6 @@ class DatabaseHelper {
         });
 
     print(response.body);
-    // var data = json.decode(response.body);
-    // String id = data["_id"];
-
-    //project.addID(id);
-
-    //print("Adding Task");
     return response;
   }
 

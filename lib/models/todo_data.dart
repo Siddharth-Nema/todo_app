@@ -116,7 +116,7 @@ class ToDoData extends ChangeNotifier {
   }
 
   bool addToProject(Task task, Project project) {
-    if (task.id == null || task.title == '' || project.id == null) {
+    if (task.title == '' || project.id == null) {
       return false;
     }
     for (Task prevTask in project.tasks) {
@@ -134,14 +134,5 @@ class ToDoData extends ChangeNotifier {
     DatabaseHelper.dbHelper.deleteTaskFromProject(task, project.id ?? '');
     project.tasks.remove(task);
     notifyListeners();
-  }
-
-  int _getProjectWithTitle(String title) {
-    for (int i = 0; i < projects.length; i++) {
-      if (projects[i].title == title) {
-        return i;
-      }
-    }
-    return -1;
   }
 }

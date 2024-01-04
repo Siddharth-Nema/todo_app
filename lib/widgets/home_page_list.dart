@@ -1,5 +1,4 @@
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:todoapp/constants.dart';
@@ -27,7 +26,6 @@ class HomePageList extends StatelessWidget {
               Text(
                 '${AppLocalizations.of(context)!.welcome} ${FirebaseAuth.instance.currentUser?.displayName}',
                 style: TextStyle(
-                  color: kBlackColor,
                   fontSize: 27.0,
                   fontWeight: FontWeight.w800,
                 ),
@@ -43,7 +41,7 @@ class HomePageList extends StatelessWidget {
           ),
         ),
         Padding(
-          padding: EdgeInsets.all(8.0),
+          padding: EdgeInsets.symmetric(horizontal: 10, vertical: 12),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: <Widget>[
@@ -52,7 +50,6 @@ class HomePageList extends StatelessWidget {
                 style: TextStyle(
                   fontWeight: FontWeight.w600,
                   fontSize: 24.0,
-                  color: kBlackColor,
                 ),
               ),
               Text('${context.watch<ToDoData>().projects.length} projects'),
@@ -63,7 +60,7 @@ class HomePageList extends StatelessWidget {
           projects: context.watch<ToDoData>().projects,
         ),
         Padding(
-          padding: EdgeInsets.all(8.0),
+          padding: EdgeInsets.symmetric(horizontal: 10, vertical: 12),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: <Widget>[
@@ -72,7 +69,6 @@ class HomePageList extends StatelessWidget {
                 style: TextStyle(
                   fontWeight: FontWeight.w600,
                   fontSize: 24.0,
-                  color: kBlackColor,
                 ),
               ),
               Text('${context.watch<ToDoData>().tasks.length} tasks'),

@@ -17,6 +17,7 @@ class AddProjectView extends StatelessWidget {
         ),
       ),
       child: Container(
+        color: kSecondaryBlueColor,
         height: 112.0,
         child: Column(
           children: <Widget>[
