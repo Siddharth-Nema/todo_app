@@ -68,7 +68,7 @@ class _LoginPageState extends State<LoginPage> {
       backgroundColor: kPrimaryColor,
       body: SingleChildScrollView(
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 24.0, vertical: 100),
+          padding: const EdgeInsets.symmetric(horizontal: 24.0, vertical: 80),
           child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -107,7 +107,7 @@ class _LoginPageState extends State<LoginPage> {
                   ],
                 ),
                 Padding(
-                  padding: const EdgeInsets.symmetric(vertical: 10.0),
+                  padding: const EdgeInsets.fromLTRB(0, 50, 0, 0),
                   child: ElevatedButton(
                       style: ButtonStyle(
                           padding: MaterialStatePropertyAll(
